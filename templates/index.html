@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+  
+{% block login %}
+      {% if session.typeUser==1 %}
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Menu Admin
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" href="/">index</a>
+               <a class="dropdown-item" href="/mision_vision">Misión y Visión</a>
+               <a class="dropdown-item" href="/servicio">Servicios</a>
+               <a class="dropdown-item" href="/contacto">Contactos</a>
+            </div>
+         </li>
+      {% endif %}
+
+      {% if session.typeUser==2 %}
+      <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu Client
+         </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/crear_reserva">Nueva Reserva</a>
+            <a class="dropdown-item" href="/gestionar_reserva">Mis Reservas</a>
+            <a class="dropdown-item" href="/perfil_cliente">Mi Perfil</a>
+         </div>
+      </li>
+   {% endif %}
+
+   {% if session.username %}
+   <li class="nav-link dropdown" role="button">
+      <a style="color: inherit" href="/editar">Editar informacion</a>
+   </li>
+   <li class="nav-link dropdown" role="button">
+      <a style="color: inherit" href="/logout">logout</a>
+   </li>
+   {% else %}
+      You are not Register. <a href="/login">login</a>.
+   {% endif %}
+
+{% endblock %}

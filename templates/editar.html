@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+  
+{% block login %}
+
+   {% if session.username %}
+   <li class="nav-link dropdown" role="button">
+      <a href="/editar">Editar informacion</a>
+   </li>
+   <li class="nav-link dropdown" role="button">
+      <a href="/logout">logout</a>
+   </li>
+   {% else %}
+      You are not Register. <a href="/login">login</a>.
+   {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<form action="/editar" method="POST">
+   <div class="form-group">
+      <label>Name</label>
+      <input name="Name" placeholder="Name" class="form-control" type="text" value="{{user_object.name}}">
+   </div>
+   <div class="form-group">
+      <label>username</label>
+      <input name="Username" placeholder="Username" class="form-control" type="text" value="{{user_object.username}}">
+   </div>
+   <div class="form-group">
+      <label>phone</label>
+      <input name="Phone" placeholder="Phone" class="form-control" type="number" value="{{user_object.phone}}">
+   </div>
+   <div class="form-group">
+      <label>email</label>
+      <input name="Email" placeholder="Email" class="form-control" type="text" value="{{user_object.email}}">
+   </div>
+   <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

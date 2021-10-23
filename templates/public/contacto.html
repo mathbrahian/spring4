@@ -1,0 +1,62 @@
+{% extends "index.html" %}
+
+{% block content %}
+<link href="/static/stylecontacto.css" rel="stylesheet" type="text/css"> 
+<script>
+    const checkbox = document.querySelector('.my-form input[type="checkbox"]');
+    const btns = document.querySelectorAll(".my-form button");
+checkbox.addEventListener("change", function() {
+  const checked = this.checked;
+  for (const btn of btns) {
+    checked ? (btn.disabled = false) : (btn.disabled = true);
+  }
+});
+</script>
+
+<form class="my-form">
+    <div class="container">
+      <h1>Contactanos!</h1>
+      <ul>
+        <li>
+            <select>
+            <option selected disabled>-- Por favor seleccione una opcion --</option>
+            <option>Peticion</option>
+            <option>Queja</option>
+            <option>Reclamo</option>
+            <option>Otro</option>      
+          </select>
+        </li>    
+        <li>
+            <div class="grid grid-2">
+                <input type="text" placeholder="Nombre" required>  
+                <input type="text" placeholder="Apellido" required>
+            </div>
+        </li>    
+        <li>
+            <div class="grid grid-2">
+                <input type="email" placeholder="Email" required>  
+                <input type="tel" placeholder="Telefono">
+            </div>
+        </li>    
+        <li>
+            <textarea placeholder="Mensaje"></textarea>
+        </li>    
+        <li>
+            <input type="checkbox" id="terms">
+            <label for="terms">Autoriza el tratamiento de datos personales</label>
+        </li>
+        <li>
+            <div class="grid grid-3">
+            <button class="btn-grid" type="submit" disabled>
+              <span class="front">Enviar</span>
+            </button>
+            <button class="btn-grid" type="reset" disabled>
+              <span class="front">Cancelar</span>
+            </button> 
+          </div>
+        </li>
+      </ul>
+    </div>
+  </form>
+
+{% endblock %}

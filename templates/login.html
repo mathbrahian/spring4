@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+  
+{% block login %}
+<li class="nav-item dropdown">
+   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Log In
+   </a>
+   <form class="dropdown-menu p-4 dropdown-menu-right"  action="/login" method="POST">
+      <input placeholder="Username" autocomplete="off" type="text" name="username">
+      <input placeholder="Password" autocomplete="off" type="password" name="password">
+      <input type="submit" name="Register">
+   </form>
+</li>
+{% endblock %}
