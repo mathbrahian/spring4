@@ -65,18 +65,16 @@ def comparePassword(username, password):
     except:
         return False
 
+
 @app.route("/")
 def index():
-    # hacer función que reciba en session user y devuelva true o false
-    if not session.get("username"):
-        return redirect("/login")
     return render_template('index.html')
 
 @app.route("/editar", methods=["POST", "GET"])
 def editar():
     # hacer función que reciba en session user y devuelva true o false
     if not session.get("username"):
-        return redirect("/login")
+        return redirect("/index")
     else:
         user = User.query.filter_by(username=session.get("username")).first()
 
@@ -100,12 +98,7 @@ def login():
             session["username"] = request.form.get("username")
             user = User.query.filter_by(username=request.form.get("username")).first()
             session["typeUser"] = user.typeUser
-            print(session["typeUser"])
-            
-
-        return redirect("/")
-    return render_template("login.html")
-  
+    return render_template("/index.html")
   
 @app.route("/logout")
 def logout():
@@ -116,7 +109,6 @@ def logout():
 def contacto_func():
     return render_template("public/contacto.html")
 
-# Gustavo
 @app.route('/mision_vision')
 def mision_vision_func():
     return render_template("public/mision_vision.html")
