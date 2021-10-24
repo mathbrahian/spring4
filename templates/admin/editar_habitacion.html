@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <button type="button" class="btn btn-danger">Regresar</button>
+      </div>
+      <div class="col-sm">
+        <div class="display-3">
+            Editar Habitacion
+          </div>
+        
+      </div>
+      <div class="col-sm">
+        
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Nombre Habitación</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre Habitacion">
+        </div>
+        <div class="form-group">
+            <label for="validationDefault04">Estado</label>
+            <select class="custom-select" id="validationDefault04" required>
+            <option selected value="">Disponible</option>
+              <option value="">Ocupado</option>
+            </select>
+          </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Calificación</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Calificación">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Número de Camas</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Número de Camas">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Precio Habitación</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Precio Habitación">
+          </div>
+          <button class="btn btn-primary" type="submit">Editar Habitación</button>
+      </form>
+  </div>
+{% endblock %}

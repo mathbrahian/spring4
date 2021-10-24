@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+
+{% block content %}
+<style>
+    .header {
+        color:darkgreen;
+        font-size: 27px;
+        padding: 10px;
+    }
+</style>
+<h1  class="bg-secondary text-white text-center"> Menu Administrador</h1>
+<div class="btn-group">
+    <button type="button" class="btn btn-success">Acciones</button>
+    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">Crear Usuario</a></li>
+      <li><a href="#">Regresar</a></li>
+    </ul>
+  </div>
+<form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" method="post">
+<fieldset>
+    <legend class="text-center header">Formulario Creacion de Usuario</legend>
+
+    <div class="form-group"> 
+        <label for="nivel_id" class="control-label">Tipo de Usuario</label>
+        <select class="form-control" id="nivel_id">            
+            <option selected disabled>-- Por favor seleccione una opcion --</option>
+            <option value="1">Superadministrador</option>
+            <option value="2">Administrador</option>
+            <option value="3">Cliente</option>
+        </select>                    
+    </div>
+
+
+    <div class="form-group">
+        <label for="exampleDropdownFormEmail2">Email address</label>
+        <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@ejemplo.com">
+    </div>
+    <div class="form-group">
+        <label for="exampleDropdownFormID2">ID</label>
+        <input type="text" class="form-control" id="exampleDropdownFormID2" placeholder="ID">
+    </div>
+    <div class="form-group">
+        <label for="exampleDropdownFormName2">Nombre</label>
+        <input type="text" class="form-control" id="exampleDropdownFormName2" placeholder="Nombre">
+    </div>
+    <div class="form-group">
+        <label for="exampleDropdownFormSurname2">Apellido</label>
+        <input type="text" class="form-control" id="exampleDropdownFormSurname2" placeholder="Apellido">
+    </div>
+    <div class="form-group">
+        <label for="exampleDropdownFormPassword2">Password</label>
+        <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+    </div>
+</fieldset>
+</form>
+{% endblock %}

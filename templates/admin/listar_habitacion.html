@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <button type="button" class="btn btn-danger">Regresar</button>
+      </div>
+      <div class="col-sm">
+        <div class="display-3">
+            Listar Habitación
+          </div>
+        
+      </div>
+      <div class="col-sm">
+        
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <p class="font-weight-bold">001</p> Habitacion # 1
+          <span class="badge badge-primary badge-pill">Disponible</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <p class="font-weight-bold">002</p> Habitacion # 2
+          <span class="badge badge-primary badge-pill">Disponible</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <p class="font-weight-bold">003</p>  Habitacion # 3
+          <span class="badge badge-danger badge-pill">Ocupado</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <p class="font-weight-bold">004</p>  Habitacion # 4
+          <span class="badge badge-primary badge-pill">Disponible</span>
+        </li>
+      </ul>
+  </div>
+{% endblock %}

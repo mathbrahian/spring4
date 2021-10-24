@@ -1,16 +1,12 @@
 from main import TypeUser
 TypeUser.query.all()
 
-
-
 admin = TypeUser(name='admin')
 client = TypeUser(name='client')  
 anonymous = TypeUser(name='anonymous')
 db.session.add(admin) 
 db.session.add(client) 
 db.session.add(anonymous) 
-
-
 
  joa = User(name='Joanella Valencia Orozco', identification=9071, username='Nella',
    phone=3013457510, email='joanellav@uninorte.edu.co', password='dino', cash=1000000, state=True,    

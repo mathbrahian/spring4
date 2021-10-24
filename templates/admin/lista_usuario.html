@@ -1,0 +1,79 @@
+{% extends "index.html" %}
+
+{% block content %}
+<p>PDTE</p>
+<style>
+    .header {
+        color:darkgreen;
+        font-size: 27px;
+        padding: 10px;
+    }
+  </style>
+  <h1  class="bg-secondary text-white text-center"> Menu Administrador</h1>
+  <div class="btn-group">
+      <button type="button" class="btn btn-success">Regresar</button>
+  </div>
+  <form class="form-group" method="post">
+    <fieldset>
+        <legend class="text-center header">Lista de Usuarios</legend>
+        <div class="form-group">
+      
+
+<table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Level</th>
+        <th scope="col">ID</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Level</td>
+        <td>ID</td>
+        <td>First</td>
+        <td>Last</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td><button type="button" class="btn btn-success">Editar</button></td>
+        <td><button type="button" class="btn btn-success">Eliminar</button></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Level</td>
+        <td>ID</td>
+        <td>First</td>
+        <td>Last</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td><button type="button" class="btn btn-success">Editar</button></td>
+        <td><button type="button" class="btn btn-success">Eliminar</button></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Level</td>
+        <td>ID</td>
+        <td>First</td>
+        <td>Last</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td><button type="button" class="btn btn-success">Editar</button></td>
+        <td><button type="button" class="btn btn-success">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+</div>
+</fieldset>
+</form>
+
+
+{% endblock %}
