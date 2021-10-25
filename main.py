@@ -2,7 +2,6 @@ from flask import Flask, render_template, redirect, request, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from tkinter import *
-from tkinter import messagebox as MessageBox
 #from flask_migrate import Migrate
 import os, datetime
 
@@ -101,7 +100,21 @@ def login():
             user = User.query.filter_by(username=request.form.get("username")).first()
             session["typeUser"] = user.typeUser
         else:
-            MessageBox.showwarning("Advertencia","Contraseña Incorrecta")
+            mb = Tk() # Tkinter Constructor TK() as it creates a widget.
+            mb.title('Advertencia')
+            LABEL = Label(mb, text="Contraseña Incorrecta")
+            LABEL.pack()
+            mb.geometry('300x100')
+            mb.config(bg='#4a7a8c')
+            Button(
+                mb,
+                text='Cerrar',
+                command=lambda:mb.destroy()
+                ).pack(expand=True)
+            mb.mainloop()
+
+
+
     return render_template("/index.html")
   
 @app.route("/logout")
