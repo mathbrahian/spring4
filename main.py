@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, request, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
+from tkinter import *
+from tkinter import messagebox as MessageBox
 #from flask_migrate import Migrate
 import os, datetime
 
@@ -98,6 +100,8 @@ def login():
             session["username"] = request.form.get("username")
             user = User.query.filter_by(username=request.form.get("username")).first()
             session["typeUser"] = user.typeUser
+        else:
+            MessageBox.showwarning("Advertencia","Contraseña Incorrecta")
     return render_template("/index.html")
   
 @app.route("/logout")
@@ -117,21 +121,12 @@ def mision_vision_func():
 def servicio_func():
     return render_template("public/servicio.html")
 
-@app.route('/perfil_cliente', methods=["POST", "GET"])
+@app.route('/perfil_cliente', methods=["GET"])
 def perfil_cliente_func():
     if not session.get("username"):
         return redirect("/login")
     else:
         user = User.query.filter_by(username=session.get("username")).first()
-
-    if request.method == "POST":
-        user = User.query.filter_by(username=session.get("username")).first()
-        user.name = request.form.get("Name")
-        user.username = request.form.get("Username")
-        user.phone = request.form.get("Phone")
-        user.email = request.form.get("Email")
-        db.session.commit()
-        return redirect("/")
     return render_template("client/perfil_cliente.html", user_object=user)
 
 @app.route('/gestionar_reserva', methods=["POST", "GET"])
@@ -141,6 +136,16 @@ def gestionar_reserva_func():
 @app.route('/crear_reserva', methods=["POST", "GET"])
 def crear_reserva_func():
     return render_template("client/crear_reserva.html")
+
+
+@app.route('/perfil_administrador', methods=["GET"])
+def perfil_administrador_func():
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+    return render_template("admin/perfil_administrador.html", user_object=user)
+
 
 
 if __name__ == '__main__':
