@@ -1,19 +1,23 @@
-from main import TypeUser
-TypeUser.query.all()
-
+from main import *
+db.create_all()
 admin = TypeUser(name='admin')
 client = TypeUser(name='client')  
 anonymous = TypeUser(name='anonymous')
 db.session.add(admin) 
 db.session.add(client) 
 db.session.add(anonymous) 
-
- joa = User(name='Joanella Valencia Orozco', identification=9071, username='Nella',
-   phone=3013457510, email='joanellav@uninorte.edu.co', password='dino', state=True,    
+joa = User(name='Joanella Valencia Orozco', identification=9071, username='Nella',
+   phone=3013457510, email='joanellav@uninorte.edu.co', password=encryptPassword('firulays'), state=True,    
    typeUser=admin.id)
-
+client = User(name='client', identification=6857679, username='client',
+   phone=3221114455, email='client@uninorte.edu.co', password=encryptPassword('client'), state=True,    
+   typeUser=client.id)
+admin = User(name='admin', identification=234636, username='admin',
+   phone=3001112233, email='admin@uninorte.edu.co', password=encryptPassword('admin'), state=True,    
+   typeUser=admin.id)
 db.session.add(joa)
-
+db.session.add(admin)
+db.session.add(client)
             if user.typeUser == 'admin':
                 session["typeUser"] = 'admin'
             if user.typeUser == 'client':
