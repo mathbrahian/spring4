@@ -20,7 +20,7 @@ from datetime import datetime
 class TypeUser(db.Model):
     __tablename__ = "TypeUser"
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), nullable=False)
+    name = db.Column(db.String(20), nullable=True)
     
     def __repr__(self):
         return f"{self.name}"
@@ -28,16 +28,15 @@ class TypeUser(db.Model):
 class User(db.Model):
     __tablename__ = "User"
     id = db.Column(db.Integer, primary_key=True)
-    identification = db.Column(db.Integer, nullable=False)
-    name = db.Column(db.String(100), nullable=False)
-    username = db.Column(db.String(100), nullable=False)
-    phone = db.Column(db.Integer, nullable=False)
-    email = db.Column(db.String(100), nullable=False)
-    password = db.Column(db.String(1000), nullable=False)
-    cash = db.Column(db.Float, nullable=False)
+    identification = db.Column(db.Integer, nullable=True)
+    name = db.Column(db.String(100), nullable=True)
+    username = db.Column(db.String(100), nullable=True, unique=True )
+    phone = db.Column(db.Integer, nullable=True)
+    email = db.Column(db.String(100), nullable=True)
+    password = db.Column(db.String(1000), nullable=True)
     state = db.Column(db.Boolean, default=False)
     typeUser = db.Column(db.Integer, db.ForeignKey('TypeUser.id'))
-    pubDate = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    pubDate = db.Column(db.DateTime, nullable=True, default=datetime.utcnow)
     
     def __repr__(self):
         return f"{self.name}"
