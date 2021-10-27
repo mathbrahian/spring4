@@ -1,19 +1,4 @@
-{% extends "layout.html" %}
-  
-{% block login %}
-
-   {% if session.username %}
-   <li class="nav-link dropdown" role="button">
-      <a href="/editar">Editar informacion</a>
-   </li>
-   <li class="nav-link dropdown" role="button">
-      <a href="/logout">logout</a>
-   </li>
-   {% else %}
-      You are not Register. <a href="/login">login</a>.
-   {% endif %}
-
-{% endblock %}
+{% extends "index.html" %}
 
 {% block content %}
 

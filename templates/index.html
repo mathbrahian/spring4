@@ -1,20 +1,20 @@
 {% extends "layout.html" %}
-  
-{% block login %}
-      {% if session.typeUser==1 %}
-         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               Menu Admin
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-               <a class="dropdown-item" href="/mision_vision">Gestion de Habitaciones</a>
-               <a class="dropdown-item" href="/servicio">Usuarios</a>
-               <a class="dropdown-item" href="/contacto">Mi Perfil</a>
-            </div>
-         </li>
-      {% endif %}
 
-      {% if session.typeUser==2 %}
+{% block login %}
+{% if session.username %}
+   {% if session.typeUser==1 %}
+      <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu Admin
+         </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/mision_vision">Gestion de Habitaciones</a>
+            <a class="dropdown-item" href="/servicio">Usuarios</a>
+            <a class="dropdown-item" href="/contacto">Mi Perfil</a>
+         </div>
+      </li>
+   {% endif %}
+   {% if session.typeUser==2 %}
       <li class="nav-item dropdown">
          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Menu Client
@@ -26,16 +26,22 @@
          </div>
       </li>
    {% endif %}
-
-   {% if session.username %}
    <li class="nav-link dropdown" role="button">
       <a style="color: inherit" href="/editar">Editar informacion</a>
    </li>
    <li class="nav-link dropdown" role="button">
       <a style="color: inherit" href="/logout">logout</a>
    </li>
-   {% else %}
-      You are not Register. <a href="/login">login</a>.
-   {% endif %}
-
+{% else %}
+<li class="nav-item dropdown">
+   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Log In
+   </a>
+   <form class="dropdown-menu p-4 dropdown-menu-right"  action="/login" method="POST">
+      <input placeholder="Username" autocomplete="off" type="text" name="username">
+      <input placeholder="Password" autocomplete="off" type="password" name="password">
+      <input type="submit" name="Register">
+   </form>
+</li>
+{% endif %}
 {% endblock %}

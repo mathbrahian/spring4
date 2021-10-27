@@ -47,7 +47,7 @@
                         Menu
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/">index</a>
+                        <a class="dropdown-item" href="/">Inicio</a>
                         <a class="dropdown-item" href="/mision_vision">Misión y Visión</a>
                         <a class="dropdown-item" href="/servicio">Servicios</a>
                         <a class="dropdown-item" href="/contacto">Contactos</a>
@@ -57,17 +57,12 @@
 
             <ul class="navbar-nav ml-auto">
                 
-
+                {% block login %}
+                {% endblock %}
                 
-                    {% block login %}
-                    {% endblock %}
-                
-
-
-
 
             </ul>
-            >
+            
 
         </div>
     </nav>
@@ -89,6 +84,7 @@
 
 
     <div class="container-fluid ">
+
         {% block content %}
         <div class="jumbotron imagen-search">
             <h1 class="display-6">Search Room</h1>

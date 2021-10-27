@@ -2,17 +2,6 @@
 
 {% block content %}
 <link href="/static/stylecontacto.css" rel="stylesheet" type="text/css"> 
-<script>
-    const checkbox = document.querySelector('.my-form input[type="checkbox"]');
-    const btns = document.querySelectorAll(".my-form button");
-checkbox.addEventListener("change", function() {
-  const checked = this.checked;
-  for (const btn of btns) {
-    checked ? (btn.disabled = false) : (btn.disabled = true);
-  }
-});
-</script>
-
 <form class="my-form">
     <div class="container">
       <h1>Contactanos!</h1>
