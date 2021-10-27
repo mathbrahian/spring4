@@ -88,6 +88,29 @@ def editar():
         return redirect("/")
 
     return render_template('editar.html', user_object=user)
+
+@app.route("/crear_usuario", methods=["POST", "GET"])
+def crear_usuario():
+    if request.method == "POST":
+        name = request.form.get("Name")
+        username = request.form.get("Username")
+        phone = request.form.get("Phone")
+        identification = request.form.get("Identification")
+        email = request.form.get("Email")
+        password = request.form.get("Password")
+        user = User(
+            name=name, 
+            identification=identification, 
+            username=username,
+            phone=phone, 
+            email=email, 
+            password=encryptPassword(password), 
+            state=True,
+            typeUser=2)
+        db.session.add(user) 
+        db.session.commit()
+        return redirect("/crear_usuario")
+    return render_template('admin/crear_usuario.html')
   
   
 @app.route("/login", methods=["POST", "GET"])
