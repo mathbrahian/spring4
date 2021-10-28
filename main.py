@@ -183,6 +183,29 @@ def gestionar_habitacion_func():
         user = User.query.filter_by(username=session.get("username")).first()
     return render_template("admin/gestionar_habitacion.html", user_object=user)
 
+@app.route('/gestionar_comentarios')
+def gestionar_comentarios_func():
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+    return render_template("admin/gestionar_comentarios.html", user_object=user)
+
+@app.route('/lista_usuario')
+def lista_usuario_func():
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+    return render_template("admin/lista_usuario.html", user_object=user)
+
+@app.route('/crear_habitacion')
+def crear_habitacion_func():
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+    return render_template("admin/crear_habitacion.html", user_object=user)
 
 if __name__ == '__main__':
     app.run(host='localhost', port=8080, debug=True)
