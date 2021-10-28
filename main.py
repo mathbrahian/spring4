@@ -207,5 +207,15 @@ def crear_habitacion_func():
         user = User.query.filter_by(username=session.get("username")).first()
     return render_template("admin/crear_habitacion.html", user_object=user)
 
+
+@app.route('/listar_habitacion')
+def listar_habitacion_func():
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+    return render_template("admin/listar_habitacion.html", user_object=user)
+
+
 if __name__ == '__main__':
     app.run(host='localhost', port=8080, debug=True)
