@@ -1,8 +1,16 @@
 {% extends "index.html" %}
 
 {% block content %}
+<style>
+   .header {
+       color:darkgreen;
+       font-size: 27px;
+       padding: 10px;
+   }
+</style>
+<h1  class="bg-secondary text-white text-center"> Editar Perfil</h1>
 
-<form action="/editar" method="POST">
+<form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" action="/editar" method="POST">
    <div class="form-group">
       <label>Name</label>
       <input name="Name" placeholder="Name" class="form-control" type="text" value="{{user_object.name}}">

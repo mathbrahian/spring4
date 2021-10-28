@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, request, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
-from tkinter import *
 #from flask_migrate import Migrate
 import os, datetime
 
@@ -121,22 +120,8 @@ def login():
             session["username"] = request.form.get("username")
             user = User.query.filter_by(username=request.form.get("username")).first()
             session["typeUser"] = user.typeUser
-        else:
-            mb = Tk() # Tkinter Constructor TK() as it creates a widget.
-            mb.title('Advertencia')
-            LABEL = Label(mb, text="Contraseña Incorrecta")
-            LABEL.pack()
-            mb.geometry('300x100')
-            mb.config(bg='#4a7a8c')
-            Button(
-                mb,
-                text='Cerrar',
-                command=lambda:mb.destroy()
-                ).pack(expand=True)
-            mb.mainloop()
-
-
-
+        #else:
+            #Alerta de error
     return render_template("/index.html")
   
 @app.route("/logout")
@@ -181,6 +166,22 @@ def perfil_administrador_func():
         user = User.query.filter_by(username=session.get("username")).first()
     return render_template("admin/perfil_administrador.html", user_object=user)
 
+@app.route('/gestionar_usuarios')
+def gestionar_usuarios_func():
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+    return render_template("admin/gestionar_usuarios.html", user_object=user)
+
+
+@app.route('/gestionar_habitacion')
+def gestionar_habitacion_func():
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+    return render_template("admin/gestionar_habitacion.html", user_object=user)
 
 
 if __name__ == '__main__':
