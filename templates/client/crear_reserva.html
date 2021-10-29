@@ -1,16 +1,26 @@
 {% extends "index.html" %}
 
 {% block content %}
-<button type="button" class="btn btn-primary">RETURN</button>
-<button type="button" class="btn btn-secondary">REQUEST</button>
 
-<div class="mx-auto" style="width: 200px;">
-  <nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="EDITABLE FORM" placeholder="EDITABLE FORM" aria-label="EDITABLE FORM">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-        RESERVATION INFORMATION </button>
-    </form>
-  </nav>
-</div>
+<h1  class="bg-secondary text-white text-center">RESERVATION INFORMATION</h1>
+<form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" action="#">
+  <div class="form-group">
+     <label>Check In</label>
+     <input name="Name" placeholder="Name" class="form-control" type="text" value="{{user_object.name}}">
+  </div>
+  <div class="form-group">
+     <label>Check Out</label>
+     <input name="Username" placeholder="Username" class="form-control" type="text" value="{{user_object.username}}">
+  </div>
+  <div class="form-group">
+     <label>No Guests</label>
+     <input name="Phone" placeholder="Phone" class="form-control" type="number" value="{{user_object.phone}}">
+  </div>
+  <div class="form-group">
+     <label>email</label>
+     <input name="Email" placeholder="Email" class="form-control" type="text" value="{{user_object.email}}">
+  </div>
+  <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+</form>
 {% endblock %}

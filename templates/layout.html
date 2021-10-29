@@ -83,15 +83,36 @@
 
 
 
+
     <div class="container-fluid ">
 
         {% block content %}
         <div class="jumbotron imagen-search">
-            <h1 class="display-6">Search Room</h1>
-            <hr class="my-4">
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Search</a>
-            </p>
+            <h2 class="mb-4" style="color: blanchedalmond;text-shadow:rgb(14, 13, 13) 5px 0 10px; ">Search Room</h2>
+            
+    <!-- Table Reservation Form -->
+    <section id="book-a-table" class="book-a-table">
+        <div class="container" data-aos="fade-up">
+            <form action="" method="post" role="form">
+              <div class="form-row">
+                <div class="col-lg-4 col-md-6 form-group"><p style="text-shadow:rgb(255, 255, 255) 5px 0 10px;font-weight: bold; font-family: Helvetica, Arial, sans-serif;" >Check In</p>
+                    <input type="date" name="date" class="form-control" id="date" placeholder="Date">
+                </div>
+                <div class="col-lg-4 col-md-6 form-group"><p style="text-shadow:rgb(255, 255, 255) 5px 0 10px;font-weight: bold; font-family: Helvetica, Arial, sans-serif;" >Check Out</p>
+                    <input type="date" name="date" class="form-control" id="date" placeholder="Date">
+                </div>
+                    <div class="col-lg-4 col-md-6 form-group"><p style="text-shadow:rgb(255, 255, 255) 5px 0 10px;font-weight: bold; font-family: Helvetica, Arial, sans-serif;" >Berooms</p>
+                    <input type="number" class="form-control" name="people" id="people" placeholder="No. of people">
+                </div>
+              </div>
+              <a class="btn btn-primary btn-lg" href="#" role="button">Search</a>            
+            </form>
+        </div>
+    </section>
+    <!-- End Table Reservation Form -->
+
+
+            
         </div>
         
     </div>
