@@ -1,24 +1,25 @@
 {% extends "index.html" %}
 
 {% block content %}
-
-<h1  class="bg-secondary text-white text-center">RESERVATION INFORMATION</h1>
+<style>
+.p2 {
+  text-shadow:rgb(255, 255, 255) 5px 0 10px;
+  font-weight: bold; 
+  font-family: Helvetica, Arial, sans-serif;
+}
+</style>
+<h1  class="bg-secondary text-white text-center">NEW RESERVATION</h1>
 <form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" action="#">
-  <div class="form-group">
-     <label>Check In</label>
-     <input name="Name" placeholder="Name" class="form-control" type="text" value="{{user_object.name}}">
-  </div>
-  <div class="form-group">
-     <label>Check Out</label>
-     <input name="Username" placeholder="Username" class="form-control" type="text" value="{{user_object.username}}">
-  </div>
-  <div class="form-group">
-     <label>No Guests</label>
-     <input name="Phone" placeholder="Phone" class="form-control" type="number" value="{{user_object.phone}}">
-  </div>
-  <div class="form-group">
-     <label>email</label>
-     <input name="Email" placeholder="Email" class="form-control" type="text" value="{{user_object.email}}">
+  <div class="form-row">
+    <div class="col-lg-4 col-md-6 form-group"><p class="p2" >Check In</p>
+        <input type="date" name="date" class="form-control" id="date" placeholder="Date">
+    </div>
+    <div class="col-lg-4 col-md-6 form-group"><p  class="p2" >Check Out</p>
+        <input type="date" name="date" class="form-control" id="date" placeholder="Date">
+    </div>
+        <div class="col-lg-4 col-md-6 form-group"><p class="p2">No. Guest</p>
+        <input type="number" class="form-control" name="people" id="people" placeholder="No. of people">
+    </div>
   </div>
   <button type="submit" class="btn btn-secondary">Submit</button>
 </form>

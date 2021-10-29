@@ -120,8 +120,8 @@ def login():
             session["username"] = request.form.get("username")
             user = User.query.filter_by(username=request.form.get("username")).first()
             session["typeUser"] = user.typeUser
-        #else:
-            #Alerta de error
+        else:
+            return render_template("/msg_alerts.html")
     return render_template("/index.html")
   
 @app.route("/logout")
