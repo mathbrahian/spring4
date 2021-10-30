@@ -10,13 +10,13 @@ PDT
 }
 </style>
 <h1  class="bg-secondary text-white text-center">NEW RESERVATION</h1>
-<form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" action="#">
+<form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" action="/crear_reserva" method="POST">
   <div class="form-row">
     <div class="col-lg-4 col-md-6 form-group"><p class="p2" >Name Room</p>
-        <select class="custom-select" id="room" required>
-          <option selected value="">ID ROOM1 DISP</option>
-            <option value="">ID ROOM2 DISP</option>
-            <option value="">ID ROOM3 DISP</option>
+        <select class="custom-select" id="room" name="room"required>
+          {% for item in rooms %}
+            <option value="{{item.id}}">{{item.name}}</option>
+            {% endfor %}
           </select>
     </div>
     <div class="col-lg-4 col-md-6 form-group"><p class="p2" >Check In</p>
@@ -25,11 +25,7 @@ PDT
     <div class="col-lg-4 col-md-6 form-group"><p  class="p2" >Check Out</p>
         <input type="date" name="dateout" class="form-control" id="dateout" placeholder="Date">
     </div>
-        <div class="col-lg-4 col-md-6 form-group"><p class="p2">No. Guest</p>
-        <input type="number" class="form-control" name="people" id="people" placeholder="No. of people">
-    </div>
   </div>
   <button type="submit" class="btn btn-secondary">Submit</button>
-</form>
 </form>
 {% endblock %}
