@@ -1,20 +1,21 @@
 {% extends "index.html" %}
 {% block content %}
-PDTE 
-
 <h1  class="bg-secondary text-white text-center">MODIFY ROOM</h1>
-<form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" method="POST" >
+{% if session.typeUser==1 %}
+<form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" action="/editarhabitacion/{{rooms.id}}/" method="POST" >
    <div class="form-group">
       <label>Name</label>
-      <input name="Name" placeholder="Name" class="form-control" type="text" value="">
+      <input name="Name" placeholder="Name" class="form-control" type="text" value="{{rooms.name}}">
    </div>
-   <div class="form-group">
+   <div class="form-group"> <!-- State Button -->
       <label>State</label>
-      <select class="custom-select" id="state" required>
-        <option selected value="">Available</option>
-          <option value="">Unavailable</option>
-      </select>
-   </div>
+      <select class="form-control" id="state">            
+          <option selected disabled>-- Por favor seleccione una opcion --</option>
+          <option value={{True}}>Disponible</option>
+          <option value={{False}}>No Disponible</option>
+      </select>                    
+  </div>
    <button type="submit" class="btn btn-secondary">Submit</button>
 </form>
+{% endif %}
 {% endblock %}

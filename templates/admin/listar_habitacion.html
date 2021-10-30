@@ -17,7 +17,7 @@
           <th scope="row">{{item.id}}</th>
           <th scope="row">{{item.name}}</th>
           <td class="mt-2 badge badge-primary badge-pill">{%if item.state == True: %} Disponible {% else: %} No Disponible {% endif %}</td> 
-          <td><button type="button" class="btn btn-success" href="{{ url_for( 'editarhabitacion' , id=item.id ) }}">Edit</button></td>
+          <td><a type="button" class="btn btn-success" href="{{ url_for( 'editarhabitacion' , id=item.id ) }}">Edit</a></td>
           <td><a type="button" class="btn btn-success" href="{{ url_for( 'eliminarroom' , id=item.id ) }}">Delete</a></td>
         </tr>
       {% endfor %}

@@ -107,7 +107,6 @@ def editar():
 def editar_2(id):
     # hacer función que reciba en session user y devuelva true o false
     user = User.query.filter_by(id=id).first()
-
     if request.method == "POST":
         userE = User.query.filter_by(id=id).first()
         userE.name = request.form.get("Name")
@@ -269,16 +268,18 @@ def listar_habitacion_func():
 
 @app.route("/editarhabitacion/<id>/", methods=["POST", "GET"])
 def editarhabitacion(id):
+    rooms = Room.query.filter_by(id=id).first()
     if not session.get("username"):
         return redirect("/login")
     else:
         user = User.query.filter_by(username=session.get("username")).first()
     if request.method == "POST":
-        roomE = User.query.filter_by(id=id).first()
+        roomE = Room.query.filter_by(id=id).first()
         roomE.name = request.form.get("Name")
-        roomE.state = request.form.get("state")
+        roomE.state = True
         db.session.commit()
         return redirect("/listar_habitacion" )
+    return render_template('admin/editar_habitacion.html', user_object=user, rooms=rooms)
 
 @app.route("/eliminarroom/<id>/")
 def eliminarroom(id):
