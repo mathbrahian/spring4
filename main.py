@@ -228,7 +228,7 @@ def consultar_comentario_func():
 
 @app.route('/cambio_estado_comentario', methods=["POST", "GET"])
 def cambio_estado_comentario_func():
-    return render_template("/cambio_estado_comentario.html")
+    return render_template("/admin/cambio_estado_comentario.html")
 
 @app.route('/editar_habitacion', methods=["POST", "GET"])
 def editar_habitacion_func():
@@ -245,6 +245,6 @@ def editar_reserva_func():
 @app.route('/calificar', methods=["POST", "GET"])
 def calificar_func():
     return render_template("/client/calificar.html")
-    
+
 if __name__ == '__main__':
     app.run(host='localhost', port=8080, debug=True)
