@@ -234,10 +234,6 @@ def cambio_estado_comentario_func():
 def editar_habitacion_func():
     return render_template("/admin/editar_habitacion.html")
 
-@app.route('/editar_usuario', methods=["POST", "GET"])
-def editar_usesespecifico_func():
-    return render_template("/admin/editar_usuario.html")
-
 @app.route('/editar_reserva', methods=["POST", "GET"])
 def editar_reserva_func():
     return render_template("/client/editar_reserva.html")
