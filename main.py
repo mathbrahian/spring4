@@ -190,13 +190,39 @@ def perfil_cliente_func():
         user = User.query.filter_by(username=session.get("username")).first()
     return render_template("client/perfil_cliente.html", user_object=user)
 
-@app.route('/gestionar_reserva', methods=["POST", "GET"])
-def gestionar_reserva_func():
-    return render_template("client/gestionar_reserva.html")
 
 @app.route('/crear_reserva', methods=["POST", "GET"])
 def crear_reserva_func():
-    return render_template("client/crear_reserva.html")
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+        rooms = Room.query.all()
+    
+    if request.method == "POST":
+        room = request.form.get("room")
+        dateout = request.form.get("dateout")
+        datein = request.form.get("datein")
+        print(datein)
+        # book = Booking(
+        #     idUser=user.id,  
+        #     idRoom=room,
+        #     checkIn=datein,
+        #     checkOut=dateout)
+        # db.session.add(book) 
+        # db.session.commit()
+
+
+    return render_template("client/crear_reserva.html", user_object=user, rooms = rooms)
+
+@app.route('/listar_reserva', methods=["POST", "GET"])
+def gestionar_reserva_func():
+    return render_template("client/gestionar_reserva.html")
+
+
+@app.route('/editar_reserva', methods=["POST", "GET"])
+def editar_reserva_func():
+    return render_template("/client/editar_reserva.html")
 
 
 @app.route('/perfil_administrador', methods=["GET"])
@@ -288,9 +314,6 @@ def editar_habitacion_func():
 def editar_usesespecifico_func():
     return render_template("/admin/editar_usuario.html")
 
-@app.route('/editar_reserva', methods=["POST", "GET"])
-def editar_reserva_func():
-    return render_template("/client/editar_reserva.html")
 
 @app.route('/calificar', methods=["POST", "GET"])
 def calificar_func():
