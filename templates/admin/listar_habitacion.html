@@ -1,39 +1,28 @@
 {% extends "index.html" %}
 {% block content %}
-PDTE
-
 <h1  class="bg-secondary text-white text-center">ROOMS</h1>
-<form  class="form-group" style=" padding-bottom: 5%;">
-    <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            <p class="font-weight-bold">001</p> Habitacion # 1
-            <span class="badge badge-primary badge-pill">Calificacion</span>
-          <span class="badge badge-primary badge-pill">Disponible</span> 
-          <span><button type="button" class="btn btn-success">Edit</button></span>
-          <span><button type="button" class="btn btn-success">Delete</button></span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            <p class="font-weight-bold">002</p> Habitacion # 2
-            <span class="badge badge-primary badge-pill">Calificacion</span>
-          <span class="badge badge-primary badge-pill">Disponible</span>
-          <span><button type="button" class="btn btn-success">Edit</button></span>
-          <span><button type="button" class="btn btn-success">Delete</button></span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            <p class="font-weight-bold">003</p>  Habitacion # 3
-            <span class="badge badge-primary badge-pill">Calificacion</span>
-          <span class="badge badge-danger badge-pill">Ocupado</span>
-          <span><button type="button" class="btn btn-success">Edit</button></span>
-          <span><button type="button" class="btn btn-success">Delete</button></span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            <p class="font-weight-bold">004</p>  Habitacion # 4
-            <span class="badge badge-primary badge-pill">Calificacion</span>
-          <span class="badge badge-primary badge-pill">Disponible</span>
-          <span><button type="button" class="btn btn-success">Edit</button></span>
-          <span><button type="button" class="btn btn-success">Delete</button></span>
-        </li>
-      </ul>
-  </form>
+<form  class="form-group" style=" padding-bottom: 5%;"  method="post">
+  <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">State</th>
+          <th scope="col" colspan="2" >Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in rooms %}
+        <tr>
+          <th scope="row">{{item.id}}</th>
+          <th scope="row">{{item.name}}</th>
+          <td class="mt-2 badge badge-primary badge-pill">{%if item.state == True: %} Disponible {% else: %} No Disponible {% endif %}</td> 
+          <td><button type="button" class="btn btn-success" href="{{ url_for( 'editarhabitacion' , id=item.id ) }}">Edit</button></td>
+          <td><button type="button" class="btn btn-success" href="{{ url_for( 'eliminarroom' , id=item.id ) }}">Delete</button></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</form>
 
 {% endblock %}

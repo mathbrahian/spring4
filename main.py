@@ -40,6 +40,21 @@ class User(db.Model):
     def __repr__(self):
         return f"{self.name}"
 
+class Room(db.Model):
+    __tablename__="Room"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=True)
+    state = db.Column(db.Boolean, default=False)
+
+class Booking(db.Model):
+    __tablename__="Booking"
+    id = db.Column(db.Integer, primary_key=True)
+    idUser =  db.Column(db.Integer, db.ForeignKey('User.id')) 
+    idRoom =  db.Column(db.Integer, db.ForeignKey('Room.id')) 
+    checkIn = db.Column(db.DateTime, nullable=True)
+    checkOut = db.Column(db.DateTime, nullable=True)
+    quality = db.Column(db.Float, nullable=True)
+
 import jwt
 def encryptPassword(password):
     encrypt = jwt.encode(
@@ -87,6 +102,32 @@ def editar():
         return redirect("/")
 
     return render_template('editar.html', user_object=user)
+
+@app.route("/editar_2/<id>/", methods=["POST", "GET"])
+def editar_2(id):
+    # hacer función que reciba en session user y devuelva true o false
+    user = User.query.filter_by(id=id).first()
+
+    if request.method == "POST":
+        userE = User.query.filter_by(id=id).first()
+        userE.name = request.form.get("Name")
+        userE.username = request.form.get("Username")
+        userE.phone = request.form.get("Phone")
+        userE.email = request.form.get("Email")
+        db.session.commit()
+        return redirect("/lista_usuario")
+
+    return render_template('editar2.html', user_object=user)
+
+@app.route("/eliminar/<id>/")
+def eliminar(id):
+    # hacer función que reciba en session user y devuelva true o false
+    user = User.query.filter_by(id=id).first()
+    db.session.delete(user)
+    db.session.commit()
+    return redirect("/lista_usuario")
+
+
 
 @app.route("/crear_usuario", methods=["POST", "GET"])
 def crear_usuario():
@@ -197,14 +238,23 @@ def lista_usuario_func():
         return redirect("/login")
     else:
         user = User.query.filter_by(username=session.get("username")).first()
-    return render_template("admin/lista_usuario.html", user_object=user)
+    users = User.query.all()
+    return render_template("admin/lista_usuario.html", user_object=user, users=users)
 
-@app.route('/crear_habitacion')
+@app.route('/crear_habitacion' , methods=["POST", "GET"])
 def crear_habitacion_func():
     if not session.get("username"):
         return redirect("/login")
     else:
         user = User.query.filter_by(username=session.get("username")).first()
+    if request.method == "POST":
+        name = request.form.get("Name")
+        room = Room(
+            name=name,  
+            state=True)
+        db.session.add(room) 
+        db.session.commit()
+    
     return render_template("admin/crear_habitacion.html", user_object=user)
 
 @app.route('/listar_habitacion')
@@ -213,9 +263,32 @@ def listar_habitacion_func():
         return redirect("/login")
     else:
         user = User.query.filter_by(username=session.get("username")).first()
+    rooms = Room.query.all()
     return render_template("admin/listar_habitacion.html", user_object=user)
 
+@app.route("/editarhabitacion/<id>/", methods=["POST", "GET"])
+def editarhabitacion(id):
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+    if request.method == "POST":
+        roomE = User.query.filter_by(id=id).first()
+        roomE.name = request.form.get("Name")
+        roomE.state = request.form.get("state")
+        db.session.commit()
+    return render_template('/admin/listar_habitacion.html', user_object=user )
 
+@app.route("/eliminar_room/<id>/")
+def eliminar_room(id):
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+    rooms = Room.query.filter_by(id=id).first()
+    db.session.delete(rooms)
+    db.session.commit()
+    return render_template('/admin/listar_habitacion.html', user_object=user )
 
 
 @app.route('/crear_comentario', methods=["POST", "GET"])
@@ -229,10 +302,6 @@ def consultar_comentario_func():
 @app.route('/cambio_estado_comentario', methods=["POST", "GET"])
 def cambio_estado_comentario_func():
     return render_template("/admin/cambio_estado_comentario.html")
-
-@app.route('/editar_habitacion', methods=["POST", "GET"])
-def editar_habitacion_func():
-    return render_template("/admin/editar_habitacion.html")
 
 @app.route('/editar_reserva', methods=["POST", "GET"])
 def editar_reserva_func():
