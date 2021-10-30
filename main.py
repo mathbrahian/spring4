@@ -190,13 +190,36 @@ def perfil_cliente_func():
         user = User.query.filter_by(username=session.get("username")).first()
     return render_template("client/perfil_cliente.html", user_object=user)
 
-@app.route('/gestionar_reserva', methods=["POST", "GET"])
+@app.route('/listar_reserva', methods=["POST", "GET"])
 def gestionar_reserva_func():
-    return render_template("client/gestionar_reserva.html")
+    book = Booking.query.all()
+    return render_template("client/gestionar_reserva.html", book = book)
 
 @app.route('/crear_reserva', methods=["POST", "GET"])
 def crear_reserva_func():
-    return render_template("client/crear_reserva.html")
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+        rooms = Room.query.all()
+    
+    if request.method == "POST":
+        from datetime import datetime
+        room = request.form.get("room")
+        dateout = datetime.strptime(request.form.get("dateout"), '%Y-%m-%d')
+        datein = datetime.strptime(request.form.get("datein"), '%Y-%m-%d')
+        print(datein)
+        
+        book = Booking(
+            idUser=user.id,  
+            idRoom=room,
+            checkIn=datein,
+            checkOut=dateout)
+        db.session.add(book) 
+        db.session.commit()
+
+
+    return render_template("client/crear_reserva.html", user_object=user, rooms = rooms)
 
 
 @app.route('/perfil_administrador', methods=["GET"])
