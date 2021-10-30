@@ -1,10 +1,8 @@
 {% extends "index.html" %}
-
 {% block content %}
-PDT VALIDACION SI ES ADMIN PARA ESTABLECER TIPO DE USUARIO </BR>  
+PDTE VALIDACION SI ES ADMIN PARA ESTABLECER TIPO DE USUARIO </BR>  
 
 <h1  class="bg-secondary text-white text-center">REGISTER</h1>
-
     <form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;"  action="/crear_usuario" method="POST">
         <div class="form-group">
            <label>Name</label>
@@ -30,7 +28,14 @@ PDT VALIDACION SI ES ADMIN PARA ESTABLECER TIPO DE USUARIO </BR>
             <label>password</label>
             <input name="Password" placeholder="password" class="form-control" type="password">
          </div>
-
+         <div class="form-group"> <!-- State Button -->
+            <label for="nivel_id" class="control-label">Tipo de Usuario *PDTE</label>
+            <select class="form-control" id="nivel_id">            
+                <option selected disabled>-- Por favor seleccione una opcion --</option>
+                <option value="2">Administrador</option>
+                <option value="3">Cliente</option>
+            </select>                    
+        </div>
         <button type="submit" class="btn btn-secondary">Submit</button>
      </form>
 </fieldset>

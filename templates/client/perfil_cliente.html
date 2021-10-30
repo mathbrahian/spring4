@@ -1,11 +1,7 @@
 {% extends "index.html" %}
-
 {% block content %}
-
 <h1  class="bg-secondary text-white text-center">MY PROFILE</h1>
-
 <form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" action="/perfil_client"  method="GET">
-
   <div class="form-group">
       <label>Name</label>
       <input name="Name" placeholder="Name" class="form-control" type="text" value="{{user_object.name}}" readonly>
@@ -23,5 +19,4 @@
       <input name="Email" placeholder="Email" class="form-control" type="text" value="{{user_object.email}}" readonly>
    </div>
 </form>
-
 {% endblock %}

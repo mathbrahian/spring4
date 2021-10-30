@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-
 {% block login %}
 {% if session.username %}
    {% if session.typeUser==1 %}
@@ -34,11 +33,9 @@
       <a style="color: inherit" href="/logout">logout</a>
    </li>
 {% else %}
-
 <li class="nav-item dropdown" >
    <a class="nav-link dropdown-toggle" role="button"  aria-haspopup="true" aria-expanded="false" href="/crear_usuario">Register</a>
 </li>
-
 <li class="nav-item dropdown">
    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    Log In

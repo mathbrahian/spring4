@@ -1,5 +1,4 @@
 {% extends "index.html" %}
-
 {% block content %}
 PDTE</br>
 Mostrar lista de reservas con estado y opcion de solicitar cambio o cancelacion</br>
@@ -8,12 +7,9 @@ Cuando se termina una reserva se cambia el estado</br>
 La calificacion solo se habilita cuando la reserva ha sido finalizada</br>
 
 <h1  class="bg-secondary text-white text-center">RESERVATION INFORMATION</h1>
-
-
 <form class="form-group" method="post">
   <fieldset>
       <div class="form-group">
-
 <table class="table table-sm">
   <thead>
     <tr>
@@ -23,7 +19,7 @@ La calificacion solo se habilita cuando la reserva ha sido finalizada</br>
       <th scope="col">Check Out</th>
       <th scope="col">No Guest</th>
       <th scope="col">State</th>
-      <th scope="col" colspan="2" >Actions</th>
+      <th scope="col" colspan="4" >Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -35,6 +31,7 @@ La calificacion solo se habilita cuando la reserva ha sido finalizada</br>
       <td>CANT GUEST</td>
       <td>ESTATE</td>
       <td><button type="button" class="btn btn-success">Qualify</button></td>
+      <td><button type="button" class="btn btn-success">Comment</button></td>
       <td><button type="button" class="btn btn-success">Edit</button></td>
       <td><button type="button" class="btn btn-success">Cancel</button></td>
     </tr>
@@ -46,6 +43,7 @@ La calificacion solo se habilita cuando la reserva ha sido finalizada</br>
       <td>CANT GUEST</td>
       <td>ESTATE</td>
       <td><button type="button" class="btn btn-success">Qualify</button></td>
+      <td><button type="button" class="btn btn-success">Comment</button></td>
       <td><button type="button" class="btn btn-success">Edit</button></td>
       <td><button type="button" class="btn btn-success">Cancel</button></td>
     </tr>
@@ -57,14 +55,13 @@ La calificacion solo se habilita cuando la reserva ha sido finalizada</br>
       <td>CANT GUEST</td>
       <td>ESTATE</td>
       <td><button type="button" class="btn btn-success">Qualify</button></td>
+      <td><button type="button" class="btn btn-success">Comment</button></td>
       <td><button type="button" class="btn btn-success">Edit</button></td>
       <td><button type="button" class="btn btn-success">Cancel</button></td>
     </tr>
   </tbody>
 </table>
-
         </div>
     </fieldset>
 </form>
-
 {% endblock %}
