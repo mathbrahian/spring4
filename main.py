@@ -329,7 +329,6 @@ def consultar_comentario_func():
 def cambio_estado_comentario_func():
     return render_template("/admin/cambio_estado_comentario.html")
 
-<<<<<<< HEAD
 @app.route('/editar_habitacion', methods=["POST", "GET"])
 def editar_habitacion_func():
     return render_template("/admin/editar_habitacion.html")
@@ -338,11 +337,6 @@ def editar_habitacion_func():
 def editar_usesespecifico_func():
     return render_template("/admin/editar_usuario.html")
 
-=======
-@app.route('/editar_reserva', methods=["POST", "GET"])
-def editar_reserva_func():
-    return render_template("/client/editar_reserva.html")
->>>>>>> 57ab676e5983fb9532c4bae261336d897cbd1b0e
 
 @app.route('/calificar', methods=["POST", "GET"])
 def calificar_func():
