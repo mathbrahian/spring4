@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block content %}
+PDT
+
+<style>
+.p2 {
+  text-shadow:rgb(255, 255, 255) 5px 0 10px;
+  font-weight: bold; 
+  font-family: Helvetica, Arial, sans-serif;
+}
+</style>
+<h1  class="bg-secondary text-white text-center">EDIT RESERVATION</h1>
+<form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" action="#">
+  <div class="form-row">
+    <div class="col-lg-4 col-md-6 form-group"><p class="p2" >Name Room</p>
+        <select class="custom-select" id="room" required>
+          <option selected value="">ID ROOM1 DISP</option>
+            <option value="">ID ROOM2 DISP</option>
+            <option value="">ID ROOM3 DISP</option>
+          </select>
+    </div>
+    <div class="col-lg-4 col-md-6 form-group"><p class="p2" >Check In</p>
+        <input type="date" name="datein" class="form-control" id="datein" placeholder="Date">
+    </div>
+    <div class="col-lg-4 col-md-6 form-group"><p  class="p2" >Check Out</p>
+        <input type="date" name="dateout" class="form-control" id="dateout" placeholder="Date">
+    </div>
+        <div class="col-lg-4 col-md-6 form-group"><p class="p2">No. Guest</p>
+        <input type="number" class="form-control" name="people" id="people" placeholder="No. of people">
+    </div>
+    <div class="form-group">
+      <p class="p2" >State --->SOLO ADMIN</p>
+      <select class="custom-select"  id="state" required>
+        <option selected value="">Available</option>
+          <option value="">Unavailable</option>
+      </select>
+   </div>
+  </div>
+  <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+</form>
+
+{% endblock %}

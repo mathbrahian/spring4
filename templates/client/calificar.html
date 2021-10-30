@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block content %}
+PDTE- 
+
+<h1  class="bg-secondary text-white text-center">QUALIFY ROOM ...#</h1>
+<form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" action="" method="POST" >
+
+   <div class="form-group">
+      <label>QUALIFY</label>
+      <select class="custom-select" id="validationDefault04" required>
+        <option selected value="False">------</option>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+      </select>
+   </div>
+   <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+{% endblock %}

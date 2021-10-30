@@ -207,7 +207,6 @@ def crear_habitacion_func():
         user = User.query.filter_by(username=session.get("username")).first()
     return render_template("admin/crear_habitacion.html", user_object=user)
 
-
 @app.route('/listar_habitacion')
 def listar_habitacion_func():
     if not session.get("username"):
@@ -217,5 +216,35 @@ def listar_habitacion_func():
     return render_template("admin/listar_habitacion.html", user_object=user)
 
 
+
+
+@app.route('/crear_comentario', methods=["POST", "GET"])
+def crear_comentario_func():
+    return render_template("/crear_comentario.html")
+
+@app.route('/consultar_comentarios', methods=["POST", "GET"])
+def consultar_comentario_func():
+    return render_template("/admin/consultar_comentarios.html")
+
+@app.route('/cambio_estado_comentario', methods=["POST", "GET"])
+def cambio_estado_comentario_func():
+    return render_template("/cambio_estado_comentario.html")
+
+@app.route('/editar_habitacion', methods=["POST", "GET"])
+def editar_habitacion_func():
+    return render_template("/admin/editar_habitacion.html")
+
+@app.route('/editar_usuario', methods=["POST", "GET"])
+def editar_usesespecifico_func():
+    return render_template("/admin/editar_usuario.html")
+
+@app.route('/editar_reserva', methods=["POST", "GET"])
+def editar_reserva_func():
+    return render_template("/client/editar_reserva.html")
+
+@app.route('/calificar', methods=["POST", "GET"])
+def calificar_func():
+    return render_template("/client/calificar.html")
+    
 if __name__ == '__main__':
     app.run(host='localhost', port=8080, debug=True)
