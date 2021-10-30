@@ -257,6 +257,7 @@ def crear_habitacion_func():
     
     return render_template("admin/crear_habitacion.html", user_object=user)
 
+
 @app.route('/listar_habitacion')
 def listar_habitacion_func():
     if not session.get("username"):
@@ -277,18 +278,18 @@ def editarhabitacion(id):
         roomE.name = request.form.get("Name")
         roomE.state = request.form.get("state")
         db.session.commit()
-    return render_template('/admin/listar_habitacion.html', user_object=user )
+        return redirect("/listar_habitacion" )
 
-@app.route("/eliminar_room/<id>/")
-def eliminar_room(id):
+@app.route("/eliminarroom/<id>/")
+def eliminarroom(id):
     if not session.get("username"):
         return redirect("/login")
     else:
         user = User.query.filter_by(username=session.get("username")).first()
-    rooms = Room.query.filter_by(id=id).first()
-    db.session.delete(rooms)
-    db.session.commit()
-    return render_template('/admin/listar_habitacion.html', user_object=user )
+        rooms = Room.query.filter_by(id=id).first()
+        db.session.delete(rooms)
+        db.session.commit()
+        return redirect("/listar_habitacion" )
 
 
 @app.route('/crear_comentario', methods=["POST", "GET"])
