@@ -289,9 +289,32 @@ def listar_habitacion_func():
         return redirect("/login")
     else:
         user = User.query.filter_by(username=session.get("username")).first()
+    rooms = Room.query.all()
     return render_template("admin/listar_habitacion.html", user_object=user)
 
+@app.route("/editarhabitacion/<id>/", methods=["POST", "GET"])
+def editarhabitacion(id):
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+    if request.method == "POST":
+        roomE = User.query.filter_by(id=id).first()
+        roomE.name = request.form.get("Name")
+        roomE.state = request.form.get("state")
+        db.session.commit()
+    return render_template('/admin/listar_habitacion.html', user_object=user )
 
+@app.route("/eliminar_room/<id>/")
+def eliminar_room(id):
+    if not session.get("username"):
+        return redirect("/login")
+    else:
+        user = User.query.filter_by(username=session.get("username")).first()
+    rooms = Room.query.filter_by(id=id).first()
+    db.session.delete(rooms)
+    db.session.commit()
+    return render_template('/admin/listar_habitacion.html', user_object=user )
 
 
 @app.route('/crear_comentario', methods=["POST", "GET"])
@@ -306,6 +329,7 @@ def consultar_comentario_func():
 def cambio_estado_comentario_func():
     return render_template("/admin/cambio_estado_comentario.html")
 
+<<<<<<< HEAD
 @app.route('/editar_habitacion', methods=["POST", "GET"])
 def editar_habitacion_func():
     return render_template("/admin/editar_habitacion.html")
@@ -314,6 +338,11 @@ def editar_habitacion_func():
 def editar_usesespecifico_func():
     return render_template("/admin/editar_usuario.html")
 
+=======
+@app.route('/editar_reserva', methods=["POST", "GET"])
+def editar_reserva_func():
+    return render_template("/client/editar_reserva.html")
+>>>>>>> 57ab676e5983fb9532c4bae261336d897cbd1b0e
 
 @app.route('/calificar', methods=["POST", "GET"])
 def calificar_func():
