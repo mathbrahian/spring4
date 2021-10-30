@@ -1,10 +1,9 @@
 {% extends "index.html" %}
 
 {% block content %}
-<style>
+PDT VALIDACION SI ES ADMIN PARA MODIFICAR TIPO DE USUARIO Y ESTADO </BR>
 
-</style>
-<h1  class="bg-secondary text-white text-center"> Editar Perfil</h1>
+<h1  class="bg-secondary text-white text-center">MODIFY PROFILE</h1>
 
 <form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" action="/editar" method="POST">
    <div class="form-group">
@@ -23,7 +22,8 @@
       <label>email</label>
       <input name="Email" placeholder="Email" class="form-control" type="text" value="{{user_object.email}}">
    </div>
-   <button type="submit" class="btn btn-primary">Submit</button>
+
+   <button type="submit" class="btn btn-secondary">Submit</button>
 </form>
 
 {% endblock %}

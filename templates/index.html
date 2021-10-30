@@ -5,13 +5,13 @@
    {% if session.typeUser==1 %}
       <li class="nav-item dropdown">
          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Menu Admin
+            Menu Admin 
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/gestionar_usuarios">Gestion Usuarios</a>
-            <a class="dropdown-item" href="/gestionar_habitacion">Gestion Habitaciones</a>
-            <a class="dropdown-item" href="/gestionar_comentarios">Gestion Comentarios</a>
-            <a class="dropdown-item" href="/perfil_administrador">Mi Perfil</a>
+            <a class="dropdown-item" href="/perfil_administrador">Profile</a>
+            <a class="dropdown-item" href="/gestionar_usuarios">Manage Users</a>
+            <a class="dropdown-item" href="/gestionar_habitacion">Manage Rooms</a>
+            <a class="dropdown-item" href="/gestionar_comentarios">Manage Comments</a>
          </div>
       </li>
    {% endif %}
@@ -21,14 +21,14 @@
             Menu Client
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/perfil_cliente">Profile</a>
             <a class="dropdown-item" href="/crear_reserva">Nueva Reserva</a>
             <a class="dropdown-item" href="/gestionar_reserva">Mis Reservas</a>
-            <a class="dropdown-item" href="/perfil_cliente">Mi Perfil</a>
          </div>
       </li>
    {% endif %}
    <li class="nav-link dropdown" role="button">
-      <a style="color: inherit" href="/editar">Editar informacion</a>
+      <a style="color: inherit" href="/editar">Modify Profile</a>
    </li>
    <li class="nav-link dropdown" role="button">
       <a style="color: inherit" href="/logout">logout</a>
@@ -36,7 +36,7 @@
 {% else %}
 
 <li class="nav-item dropdown" >
-   <a class="nav-link dropdown-toggle" role="button"  aria-haspopup="true" aria-expanded="false" href="/crear_usuario">Crear Usuario</a>
+   <a class="nav-link dropdown-toggle" role="button"  aria-haspopup="true" aria-expanded="false" href="/crear_usuario">Register</a>
 </li>
 
 <li class="nav-item dropdown">

@@ -1,48 +1,28 @@
 {% extends "index.html" %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <button type="button" class="btn btn-danger">Regresar</button>
-      </div>
-      <div class="col-sm">
-        <div class="display-3">
-            Editar Habitacion
-          </div>
-        
-      </div>
-      <div class="col-sm">
-        
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <form>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Nombre Habitación</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre Habitacion">
-        </div>
-        <div class="form-group">
-            <label for="validationDefault04">Estado</label>
-            <select class="custom-select" id="validationDefault04" required>
-            <option selected value="">Disponible</option>
-              <option value="">Ocupado</option>
-            </select>
-          </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput2">Calificación</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Calificación">
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2">Número de Camas</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Número de Camas">
-          </div>
-          <div class="form-group">
-            <label for="formGroupExampleInput2">Precio Habitación</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Precio Habitación">
-          </div>
-          <button class="btn btn-primary" type="submit">Editar Habitación</button>
-      </form>
-  </div>
+
+<h1  class="bg-secondary text-white text-center">MODIFY ROOM</h1>
+
+<form class="form-group" style="padding-left: 20em;padding-right: 20em; padding-bottom: 5em;" >
+   <div class="form-group">
+      <label>Name</label>
+      <input name="Name" placeholder="Name" class="form-control" type="text" value="">
+   </div>
+   <div class="form-group">
+      <label>State</label>
+      <select class="custom-select" id="validationDefault04" required>
+        <option selected value="">Available</option>
+          <option value="">Unavailable</option>
+      </select>
+   </div>
+   <div class="form-group">
+      <label>Beds</label>
+      <input name="Beds" placeholder="Phone" class="form-control" type="number" value="">
+   </div>
+
+
+   <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+
 {% endblock %}

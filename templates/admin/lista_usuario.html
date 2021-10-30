@@ -2,14 +2,9 @@
 
 {% block content %}
 <p>PDTE</p>
-<style>
-    .header {
-        color:darkgreen;
-        font-size: 27px;
-        padding: 10px;
-    }
-  </style>
-  <h1  class="bg-secondary text-white text-center">Lista de Usuarios</h1>
+
+
+  <h1  class="bg-secondary text-white text-center">USERS</h1>
   <form class="form-group" method="post">
     <fieldset>
         <div class="form-group">
@@ -19,14 +14,13 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Level</th>
+        <th scope="col">Type User</th>
         <th scope="col">ID</th>
         <th scope="col">First</th>
         <th scope="col">Last</th>
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
+        <th scope="col" colspan="2" >Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -38,8 +32,8 @@
         <td>Last</td>
         <td>Email</td>
         <td>Phone</td>
-        <td><button type="button" class="btn btn-success">Editar</button></td>
-        <td><button type="button" class="btn btn-success">Eliminar</button></td>
+        <td><button type="button" class="btn btn-success">Edit</button></td>
+        <td><button type="button" class="btn btn-success">Delete</button></td>
       </tr>
       <tr>
         <th scope="row">2</th>
@@ -49,8 +43,8 @@
         <td>Last</td>
         <td>Email</td>
         <td>Phone</td>
-        <td><button type="button" class="btn btn-success">Editar</button></td>
-        <td><button type="button" class="btn btn-success">Eliminar</button></td>
+        <td><button type="button" class="btn btn-success">Edit</button></td>
+        <td><button type="button" class="btn btn-success">Delete</button></td>
       </tr>
       <tr>
         <th scope="row">3</th>
@@ -60,8 +54,8 @@
         <td>Last</td>
         <td>Email</td>
         <td>Phone</td>
-        <td><button type="button" class="btn btn-success">Editar</button></td>
-        <td><button type="button" class="btn btn-success">Eliminar</button></td>
+        <td><button type="button" class="btn btn-success">Edit</button></td>
+        <td><button type="button" class="btn btn-success">Delete</button></td>
       </tr>
     </tbody>
   </table>
